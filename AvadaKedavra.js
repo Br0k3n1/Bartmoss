@@ -15,9 +15,6 @@ table {
 tr:nth-child(even) {
   background-color: #dedede;
 }
-tr:hover {
-  background-color: #ddd;
-}
 td {
   text-align: center;
   padding: 8px;
@@ -55,12 +52,12 @@ span:before {
   width: 17px;
   left: 3px;
   bottom: 3px;
-  background-color: #d5d8db;
+  background-color: #fcfcfc;
   transition: .4s;
   border-radius: 50%;
 }
 input:checked + span {
-  background-color: #6a696b;
+  background-color: #f7f7f7;
 }
 input:checked + span:before {
   transform: translateX(17px);
