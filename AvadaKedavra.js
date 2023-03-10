@@ -56,6 +56,14 @@ span:before {
   transition: .4s;
   border-radius: 50%;
 }
+input:focus {
+  color: #fcfcfc;
+  outline: #fcfcfc;  
+}
+input.visited {
+  color: red;
+  outline: #fcfcfc;  
+}
 `;
 
 chrome.management.getAll(extensions => {
