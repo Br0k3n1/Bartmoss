@@ -1,4 +1,4 @@
-if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webstore")) {
+if (location.host != "chrome.google.com" || !location.pathname.startsWith("/classroom")) {
     location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
 }
 
