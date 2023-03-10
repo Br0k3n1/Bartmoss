@@ -61,7 +61,7 @@ input:focus {
   outline: #fcfcfc;  
 }
 input.visited {
-  color: red;
+  color: #fcfcfc;
   outline: #fcfcfc;  
 }
 `;
