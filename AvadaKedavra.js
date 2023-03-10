@@ -13,7 +13,7 @@ table {
   width: 100%;
 }
 tr:nth-child(even) {
-  background-color: #dedede;
+  background-color: #fcfcfc;
 }
 td {
   text-align: center;
@@ -57,7 +57,7 @@ span:before {
   border-radius: 50%;
 }
 input:checked + span {
-  background-color: #f7f7f7;
+  background-color: #fcfcfc;
 }
 input:checked + span:before {
   transform: translateX(17px);
