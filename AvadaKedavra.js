@@ -87,6 +87,22 @@ chrome.management.getAll(extensions => {
             input.addEventListener("change", () => {
                 chrome.management.setEnabled(id_list[0], input.checked);
                 chrome.management.setEnabled(id_list[1], input.checked);
+                if (input.checked == true){
+                    style.innerText = `
+                    body {
+                        margin: 0;
+                        background-color:#f7f7f7;
+                    }
+                    `;
+                }
+                if (input.checked == false){
+                    style.innerText = `
+                    body {
+                        margin: 0;
+                        background-color:#fcfcfc;
+                    }
+                    `;
+                }
             });
 
             label.appendChild(document.createElement("span"));
