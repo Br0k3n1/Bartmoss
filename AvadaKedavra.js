@@ -56,7 +56,7 @@ span:before {
   width: 17px;
   left: 3px;
   bottom: 3px;
-  background-color: #fcfcfc;
+  background-color: #d5d8db;
   transition: .4s;
   border-radius: 50%;
 }
