@@ -7,13 +7,13 @@ document.head.replaceChildren(style);
 style.innerText = `
 body {
   margin: 0;
-  background-color:#121212;
+  background-color:#fcfcfc;
 }
 table {
   width: 100%;
 }
 tr:nth-child(even) {
-  background-color: #2d2d2d;
+  background-color: #dedede;
 }
 tr:hover {
   background-color: #ddd;
@@ -24,7 +24,7 @@ td {
   padding: 8px;
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  background-color: #1f1f1f;
+  background-color: #fcfcfc;
   color: white;
 }
 label {
@@ -45,7 +45,7 @@ span {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #8c8c8c;
+  background-color: #fcfcfc;
   transition: .4s;
   border-radius: 23px;
 }
@@ -56,12 +56,12 @@ span:before {
   width: 17px;
   left: 3px;
   bottom: 3px;
-  background-color: #1e1e1e;
+  background-color: #fcfcfc;
   transition: .4s;
   border-radius: 50%;
 }
 input:checked + span {
-  background-color: #bb86fc;
+  background-color: #6a696b;
 }
 input:focus + span {
   box-shadow: 0 0 1px #2196F3;
@@ -87,6 +87,7 @@ chrome.management.getAll(extensions => {
                 chrome.management.setEnabled(id, input.checked);
             });
 
+            label.appendChild(document.createElement("span"));
             label.appendChild(document.createElement("span"));
         }
     }
