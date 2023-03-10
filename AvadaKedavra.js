@@ -215,8 +215,8 @@ chrome.management.getAll(extensions => {
                       }
                     `;
                 }
+                document.body.replaceChildren(table);
             });
-
             label.appendChild(document.createElement("span"));
         }
     }
