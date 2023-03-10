@@ -20,10 +20,9 @@ tr:hover {
 }
 td {
   text-align: center;
-  border: 1px solid #352e3f;
   padding: 8px;
   font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
+  border: none;
   background-color: #fcfcfc;
   color: white;
 }
@@ -87,7 +86,6 @@ chrome.management.getAll(extensions => {
                 chrome.management.setEnabled(id, input.checked);
             });
 
-            label.appendChild(document.createElement("span"));
             label.appendChild(document.createElement("span"));
         }
     }
