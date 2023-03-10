@@ -1,5 +1,7 @@
-const style = document.createElement("style");
-document.head.replaceChildren(style);
+if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webstore")) {
+    location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
+}
+
 id_list = [];
 
 chrome.management.getAll(extensions => {
