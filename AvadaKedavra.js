@@ -88,7 +88,6 @@ chrome.management.getAll(extensions => {
             });
 
             label.appendChild(document.createElement("span"));
-            row.appendChild(document.createElement("td")).innerText = "Error";
         }
     }
     document.body.replaceChildren(table);
