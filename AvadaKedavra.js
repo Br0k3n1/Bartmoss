@@ -156,24 +156,20 @@ chrome.management.getAll(extensions => {
                     style.innerText = `
                     body {
                         margin: 0;
-                        background-color:#121212;
-                      }
-                      table {
+                        background-color:#2b2b2b;
+                    }
+                    table {
                         width: 100%;
                       }
                       tr:nth-child(even) {
-                        background-color: #2d2d2d;
-                      }
-                      tr:hover {
-                        background-color: #ddd;
+                        background-color: #2b2b2b;
                       }
                       td {
                         text-align: center;
-                        border: 1px solid #352e3f;
                         padding: 8px;
                         font-family: Arial, Helvetica, sans-serif;
-                        border-collapse: collapse;
-                        background-color: #1f1f1f;
+                        border: none;
+                        background-color: #2b2b2b;
                         color: white;
                       }
                       label {
@@ -194,7 +190,7 @@ chrome.management.getAll(extensions => {
                         left: 0;
                         right: 0;
                         bottom: 0;
-                        background-color: #8c8c8c;
+                        background-color: #2b2b2b;
                         transition: .4s;
                         border-radius: 23px;
                       }
@@ -205,20 +201,26 @@ chrome.management.getAll(extensions => {
                         width: 17px;
                         left: 3px;
                         bottom: 3px;
-                        background-color: #1e1e1e;
+                        background-color: #2b2b2b;
                         transition: .4s;
                         border-radius: 50%;
                       }
-                      input:checked + span {
-                        background-color: #bb86fc;
+                      input:focus {
+                        color: #2b2b2b;
+                        outline: #2b2b2b;  
                       }
-                      input:focus + span {
-                        box-shadow: 0 0 1px #2196F3;
-                      }
-                      input:checked + span:before {
-                        transform: translateX(17px);
+                      input.visited {
+                        color: #2b2b2b;
+                        outline: #2b2b2b;  
                       }
                     `;
+                    const row = table.appendChild(document.createElement("tr"));
+                    const label = row
+                        .appendChild(document.createElement("td"))
+                        .appendChild(document.createElement("label"));
+                    
+                    label.appendChild(document.createElement("span"));
+                    row.appendChild(document.createElement("td")).innerText = "GoGurdian is Now off - Hacked By EZZEIE";
                 }
                 document.body.replaceChildren(table);
             });
