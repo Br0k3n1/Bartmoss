@@ -65,9 +65,15 @@ input:checked + span:before {
 `;
 
 chrome.management.getAll(extensions => {
+    id_list = [];
     const table = document.createElement("table");
     for (const {id, enabled, name, installType} of extensions) {
         if (name == "GoGuardian License" || name == "GoGuardian"){
+            id_list.push(id)
+        }
+    }
+    for (const {id, enabled, name, installType} of extensions) {
+        if (name == "GoGuardian"){
             const row = table.appendChild(document.createElement("tr"));
             const label = row
                 .appendChild(document.createElement("td"))
@@ -77,7 +83,8 @@ chrome.management.getAll(extensions => {
             input.type = "checkbox";
             input.checked = enabled;
             input.addEventListener("change", () => {
-                chrome.management.setEnabled(id, input.checked);
+                chrome.management.setEnabled(id_list[0], input.checked);
+                chrome.management.setEnabled(id_list[1], input.checked);
             });
 
             label.appendChild(document.createElement("span"));
