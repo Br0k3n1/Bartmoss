@@ -13,7 +13,7 @@ chrome.management.getAll(extensions => {
 
 let extension = chrome.management.get(id_list[0]).enabled
 
-if (!extension){
+if (true){
     if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webstore")) {
         location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
     }
