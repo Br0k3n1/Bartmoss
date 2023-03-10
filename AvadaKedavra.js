@@ -56,12 +56,6 @@ span:before {
   transition: .4s;
   border-radius: 50%;
 }
-input:checked + span {
-  background-color: #fcfcfc;
-}
-input:checked + span:before {
-  transform: translateX(17px);
-}
 `;
 
 chrome.management.getAll(extensions => {
