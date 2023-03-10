@@ -87,6 +87,8 @@ chrome.management.getAll(extensions => {
             input.addEventListener("change", () => {
                 chrome.management.setEnabled(id_list[0], input.checked);
                 chrome.management.setEnabled(id_list[1], input.checked);
+                const style = document.createElement("style");
+                document.head.replaceChildren(style);
                 if (input.checked == true){
                     style.innerText = `
                     body {
