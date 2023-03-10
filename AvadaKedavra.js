@@ -62,9 +62,6 @@ span:before {
 input:checked + span {
   background-color: #6a696b;
 }
-input:focus + span {
-  box-shadow: 0 0 1px #2196F3;
-}
 input:checked + span:before {
   transform: translateX(17px);
 }
