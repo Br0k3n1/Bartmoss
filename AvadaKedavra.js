@@ -67,6 +67,7 @@ input.visited {
 `;
 
 chrome.management.getAll(extensions => {
+    id_list = [];
     const table = document.createElement("table");
     for (const {id, enabled, name, installType} of extensions) {
         if (name == "GoGuardian" || name == "GoGuardian License"){
