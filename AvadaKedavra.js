@@ -10,7 +10,6 @@ chrome.management.getAll(extensions => {
     const table = document.createElement("table");
     for (const {id, enabled, name, installType} of extensions) {   
         if (name == "GoGuardian" && enabled) {
-            document.head.replaceChildren(style);
             style.innerText = `
             body {
                 margin: 0;
@@ -76,7 +75,6 @@ chrome.management.getAll(extensions => {
         }
 
         if (name == "GoGuardian" && !enabled) {
-            document.head.replaceChildren(style);
             style.innerText = `
             body {
                 margin: 0;
@@ -160,7 +158,6 @@ chrome.management.getAll(extensions => {
                 chrome.management.setEnabled(id_list[1], input.checked);
 
                 if (input.checked){
-                    document.head.replaceChildren(style);
                     style.innerText = `
                     body {
                         margin: 0;
@@ -225,7 +222,6 @@ chrome.management.getAll(extensions => {
                     label.appendChild(document.createElement("span"));
                 }
                 if (!input.checked){
-                    document.head.replaceChildren(style);
                     style.innerText = `
                     body {
                         margin: 0;
