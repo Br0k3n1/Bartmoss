@@ -86,7 +86,7 @@ function GuardianOff(){
         padding: 8px;
         font-family: Arial, Helvetica, sans-serif;
         border: none;
-        background-color: #2b2b2b;
+        background-color: #d4d4d4;
         color: white;
     }
     label {
@@ -118,17 +118,9 @@ function GuardianOff(){
         width: 17px;
         left: 3px;
         bottom: 3px;
-        background-color: #2b2b2b;
+        background-color: ##787878;
         transition: .4s;
         border-radius: 50%;
-    }
-    input:focus {
-        color: #2b2b2b;
-        outline: #2b2b2b;  
-    }
-    input.visited {
-        color: #2b2b2b;
-        outline: #2b2b2b;  
     }
     `;
 }
