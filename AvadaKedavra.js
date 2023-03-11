@@ -1,5 +1,5 @@
 if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webstore")) {
-  location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
+    location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
 }
 
 const style = document.createElement("style");
@@ -7,20 +7,24 @@ document.head.replaceChildren(style);
 style.innerText = `
 body {
   margin: 0;
-  background-color:#fcfcfc;
+  background-color:#121212;
 }
 table {
   width: 100%;
 }
 tr:nth-child(even) {
-  background-color: #fcfcfc;
+  background-color: #2d2d2d;
+}
+tr:hover {
+  background-color: #ddd;
 }
 td {
   text-align: center;
+  border: 1px solid #352e3f;
   padding: 8px;
   font-family: Arial, Helvetica, sans-serif;
-  border: none;
-  background-color: #fcfcfc;
+  border-collapse: collapse;
+  background-color: #1f1f1f;
   color: white;
 }
 label {
@@ -41,7 +45,7 @@ span {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fcfcfc;
+  background-color: #8c8c8c;
   transition: .4s;
   border-radius: 23px;
 }
@@ -52,36 +56,40 @@ span:before {
   width: 17px;
   left: 3px;
   bottom: 3px;
-  background-color: #fcfcfc;
+  background-color: #1e1e1e;
   transition: .4s;
   border-radius: 50%;
 }
-input:focus {
-  color: #fcfcfc;
-  outline: #fcfcfc;  
+input:checked + span {
+  background-color: #bb86fc;
 }
-input.visited {
-  color: #fcfcfc;
-  outline: #fcfcfc;  
+input:focus + span {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + span:before {
+  transform: translateX(17px);
 }
 `;
 
 chrome.management.getAll(extensions => {
-  const table = document.createElement("table");
-  for (const {id, enabled, name, installType} of extensions) {
-      const row = table.appendChild(document.createElement("tr"));
-      const label = row
-          .appendChild(document.createElement("td"))
-          .appendChild(document.createElement("label"));
+    const table = document.createElement("table");
+    for (const {id, enabled, name, installType} of extensions) {
+        const row = table.appendChild(document.createElement("tr"));
+        const label = row
+            .appendChild(document.createElement("td"))
+            .appendChild(document.createElement("label"));
 
-      const input = label.appendChild(document.createElement("input"));
-      input.type = "checkbox";
-      input.checked = enabled;
-      input.addEventListener("change", () => {
-          chrome.management.setEnabled(id, input.checked);
-      });
+        const input = label.appendChild(document.createElement("input"));
+        input.type = "checkbox";
+        input.checked = enabled;
+        input.addEventListener("change", () => {
+            chrome.management.setEnabled(id, input.checked);
+        });
 
-      label.appendChild(document.createElement("span"));
-  }
-  document.body.replaceChildren(table);
+        label.appendChild(document.createElement("span"));
+        row.appendChild(document.createElement("td")).innerText = extensions;
+        row.appendChild(document.createElement("td")).innerText = id;
+        row.appendChild(document.createElement("td")).innerText = installType;
+    }
+    document.body.replaceChildren(table);
 });
