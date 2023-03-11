@@ -62,12 +62,11 @@ function GuardianOn(){
         color: #fcfcfc;
         outline: #fcfcfc;  
     }
-        input.visited {
+    input.visited {
         color: #fcfcfc;
         outline: #fcfcfc;  
     }
     `;
-    label.appendChild(document.createElement("span"));
 }
 
 function GuardianOff(){
@@ -127,12 +126,11 @@ function GuardianOff(){
         color: #2b2b2b;
         outline: #2b2b2b;  
     }
-        input.visited {
+    input.visited {
         color: #2b2b2b;
         outline: #2b2b2b;  
     }
     `;
-    label.appendChild(document.createElement("span"));
 }
 
 chrome.management.getAll(extensions => {
