@@ -163,6 +163,7 @@ chrome.management.getAll(extensions => {
                 if (input.checked){
                     GuardianOn();
                     label.appendChild(document.createElement("span"));
+                    table.removeChild(document.getElementsByTagName("td"));
                 }
                 if (!input.checked){
                     GuardianOff();
@@ -174,6 +175,7 @@ chrome.management.getAll(extensions => {
             if (input.checked){
                 GuardianOn();
                 label.appendChild(document.createElement("span"));
+                table.removeChild(document.getElementsByTagName("td"));
             }
 
             if (!input.checked){
