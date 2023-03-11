@@ -67,6 +67,7 @@ function GuardianOn(){
         outline: #fcfcfc;  
     }
     `;
+    label.appendChild(document.createElement("span"));
 }
 
 function GuardianOff(){
@@ -131,6 +132,7 @@ function GuardianOff(){
         outline: #2b2b2b;  
     }
     `;
+    label.appendChild(document.createElement("span"));
 }
 
 chrome.management.getAll(extensions => {
