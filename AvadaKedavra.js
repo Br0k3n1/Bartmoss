@@ -174,7 +174,6 @@ chrome.management.getAll(extensions => {
             
             if (input.checked){
                 GuardianOn();
-                message.remove()
                 label.appendChild(document.createElement("span"));
             }
 
