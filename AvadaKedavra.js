@@ -163,23 +163,27 @@ chrome.management.getAll(extensions => {
                 if (input.checked){
                     GuardianOn();
                     label.appendChild(document.createElement("span"));
+                    message.remove()
                 }
                 if (!input.checked){
                     GuardianOff();
                     label.appendChild(document.createElement("span"));
-                    table.appendChild(document.createElement("td")).innerText = "GoGuardian is Off - Hacked By EZZEIE";
+                    let message = document.createElement("td")
+                    table.appendChild(message).innerText = "GoGuardian is Off - Hacked By EZZEIE";
                 }
             });
             
             if (input.checked){
                 GuardianOn();
+                message.remove()
                 label.appendChild(document.createElement("span"));
             }
 
             if (!input.checked){
                 GuardianOff();
                 label.appendChild(document.createElement("span"));
-                table.appendChild(document.createElement("td")).innerText = "GoGuardian is Off - Hacked By EZZEIE";
+                let message = document.createElement("td")
+                table.appendChild(message).innerText = "GoGuardian is Off - Hacked By EZZEIE";
             }
 
             label.appendChild(document.createElement("span"));
