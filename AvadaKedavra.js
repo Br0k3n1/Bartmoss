@@ -73,7 +73,7 @@ function GuardianOff(){
     style.innerText = `
     body {
         margin: 0;
-        background-color:#121212;
+        background-color:#a2a2a2;
     }
     table {
         width: 100%;
