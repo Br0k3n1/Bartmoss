@@ -151,7 +151,7 @@ chrome.management.getAll(extensions => {
                     }
                     `;
                 }
-                else{
+                if (!input.checked){
                     style.innerText = `
                     body {
                         margin: 0;
