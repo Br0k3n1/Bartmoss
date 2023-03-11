@@ -70,8 +70,6 @@ id_list = [];
 chrome.management.getAll(extensions => {
   for (const {id, enabled, name, installType} of extensions) {
     if (name == "GoGuardian" && enabled){
-      const style = document.createElement("style");
-      document.head.replaceChildren(style);
       style.innerText = `
       body {
         margin: 0;
@@ -135,8 +133,6 @@ chrome.management.getAll(extensions => {
       `;
     }
     else if (name == "GoGuardian" && !enabled) {
-      const style = document.createElement("style");
-      document.head.replaceChildren(style);
       style.innerText = `
       body {
         margin: 0;
