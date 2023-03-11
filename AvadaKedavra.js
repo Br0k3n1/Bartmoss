@@ -1,95 +1,163 @@
 if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webstore")) {
-    location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
+  location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
 }
 
-const style = document.createElement("style");
-document.head.replaceChildren(style);
-style.innerText = `
-body {
-  margin: 0;
-  background-color:#121212;
-}
-table {
-  width: 100%;
-}
-tr:nth-child(even) {
-  background-color: #2d2d2d;
-}
-tr:hover {
-  background-color: #ddd;
-}
-td {
-  text-align: center;
-  border: 1px solid #352e3f;
-  padding: 8px;
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  background-color: #1f1f1f;
-  color: white;
-}
-label {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 23px;
-}
-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-span {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #8c8c8c;
-  transition: .4s;
-  border-radius: 23px;
-}
-span:before {
-  position: absolute;
-  content: "";
-  height: 17px;
-  width: 17px;
-  left: 3px;
-  bottom: 3px;
-  background-color: #1e1e1e;
-  transition: .4s;
-  border-radius: 50%;
-}
-input:checked + span {
-  background-color: #bb86fc;
-}
-input:focus + span {
-  box-shadow: 0 0 1px #2196F3;
-}
-input:checked + span:before {
-  transform: translateX(17px);
-}
-`;
+id_list = [];
 
 chrome.management.getAll(extensions => {
-    const table = document.createElement("table");
-    for (const {id, enabled, name, installType} of extensions) {
+  for (const {id, enabled, name, installType} of extensions) {
+    if (name == "GoGuardian" && enabled){
+      const style = document.createElement("style");
+      document.head.replaceChildren(style);
+      style.innerText = `
+      body {
+        margin: 0;
+        background-color:#fcfcfc;
+      }
+      table {
+        width: 100%;
+      }
+      tr:nth-child(even) {
+        background-color: #fcfcfc;
+      }
+      td {
+        text-align: center;
+        padding: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: none;
+        background-color: #fcfcfc;
+        color: white;
+      }
+      label {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 23px;
+      }
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      span {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fcfcfc;
+        transition: .4s;
+        border-radius: 23px;
+      }
+      span:before {
+        position: absolute;
+        content: "";
+        height: 17px;
+        width: 17px;
+        left: 3px;
+        bottom: 3px;
+        background-color: #fcfcfc;
+        transition: .4s;
+        border-radius: 50%;
+      }
+      input:focus {
+        color: #fcfcfc;
+        outline: #fcfcfc;  
+      }
+      input.visited {
+        color: #fcfcfc;
+        outline: #fcfcfc;  
+      }
+      `;
+    }
+    else if (name == "GoGuardian" && !enabled) {
+      const style = document.createElement("style");
+      document.head.replaceChildren(style);
+      style.innerText = `
+      body {
+        margin: 0;
+        background-color:#2b2b2b;
+      }
+      table {
+        width: 100%;
+      }
+      tr:nth-child(even) {
+        background-color: #2b2b2b;
+      }
+      td {
+        text-align: center;
+        padding: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: none;
+        background-color: #2b2b2b;
+        color: white;
+      }
+      label {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 23px;
+      }
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      span {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2b2b2bc;
+        transition: .4s;
+        border-radius: 23px;
+      }
+      span:before {
+        position: absolute;
+        content: "";
+        height: 17px;
+        width: 17px;
+        left: 3px;
+        bottom: 3px;
+        background-color: #2b2b2b;
+        transition: .4s;
+        border-radius: 50%;
+      }
+      input:focus {
+        color: #2b2b2b;
+        outline: #2b2b2b;  
+      }
+      input.visited {
+        color: #2b2b2b;
+        outline: #2b2b2b;  
+      }
+      `;
+    }
+
+    if (name == "GoGuardian" || name == "GoGuardian License"){
+      id_list.push(id)
+    }
+  }
+  for (const {id, enabled, name, installType} of extensions) {
+      if (name == "GoGuardian"){
+        const table = document.createElement("table");
         const row = table.appendChild(document.createElement("tr"));
         const label = row
-            .appendChild(document.createElement("td"))
-            .appendChild(document.createElement("label"));
+          .appendChild(document.createElement("td"))
+          .appendChild(document.createElement("label"));
 
         const input = label.appendChild(document.createElement("input"));
         input.type = "checkbox";
         input.checked = enabled;
         input.addEventListener("change", () => {
-            chrome.management.setEnabled(id, input.checked);
+          chrome.management.setEnabled(id[0], input.checked);
+          chrome.management.setEnabled(id[1], input.checked);
         });
-
-        label.appendChild(document.createElement("span"));
-        row.appendChild(document.createElement("td")).innerText = extensions[0]["enabled"];
-        row.appendChild(document.createElement("td")).innerText = id;
-        row.appendChild(document.createElement("td")).innerText = installType;
-    }
-    document.body.replaceChildren(table);
+      }
+  }
+  
+  document.body.replaceChildren(table);
 });
