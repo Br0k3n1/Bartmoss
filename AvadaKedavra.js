@@ -1,5 +1,5 @@
 if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webstore")) {
-  location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
+    location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
 }
 
 const style = document.createElement("style");
@@ -65,32 +65,23 @@ input.visited {
   outline: #fcfcfc;  
 }
 `;
-id_list = [];
 
 chrome.management.getAll(extensions => {
-  const table = document.createElement("table");
-  for (const {id, enabled, name, installType} of extensions) {
-    if (name == "GoGuardian" || name == "GoGuardian License"){
-      id_list.push(id)
-    }
-  }
-  for (const {id, enabled, name, installType} of extensions) {
-      if (name == "GoGuardian"){
+    const table = document.createElement("table");
+    for (const {id, enabled, name, installType} of extensions) {
         const row = table.appendChild(document.createElement("tr"));
         const label = row
-          .appendChild(document.createElement("td"))
-          .appendChild(document.createElement("label"));
+            .appendChild(document.createElement("td"))
+            .appendChild(document.createElement("label"));
 
         const input = label.appendChild(document.createElement("input"));
         input.type = "checkbox";
         input.checked = enabled;
         input.addEventListener("change", () => {
-          chrome.management.setEnabled(id[0], input.checked);
-          chrome.management.setEnabled(id[1], input.checked);
+            chrome.management.setEnabled(id, input.checked);
         });
-      }
-      label.appendChild(document.createElement("span"));
-  }
-  
-  document.body.replaceChildren(table);
+
+        label.appendChild(document.createElement("span"));
+    }
+    document.body.replaceChildren(table);
 });
