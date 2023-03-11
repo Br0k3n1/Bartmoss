@@ -74,17 +74,17 @@ function GuardianOff(){
     body {
         margin: 0;
         background-color:#121212;
-      }
-      table {
+    }
+    table {
         width: 100%;
-      }
-      tr:nth-child(even) {
+    }
+    tr:nth-child(even) {
         background-color: #2d2d2d;
-      }
-      tr:hover {
+    }
+    tr:hover {
         background-color: #ddd;
-      }
-      td {
+    }
+    td {
         text-align: center;
         border: 1px solid #352e3f;
         padding: 8px;
@@ -92,19 +92,19 @@ function GuardianOff(){
         border-collapse: collapse;
         background-color: #1f1f1f;
         color: white;
-      }
-      label {
+    }
+    label {
         position: relative;
         display: inline-block;
         width: 40px;
         height: 23px;
-      }
-      input {
+    }
+    input {
         opacity: 0;
         width: 0;
         height: 0;
-      }
-      span {
+    }
+    span {
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -114,8 +114,8 @@ function GuardianOff(){
         background-color: #8c8c8c;
         transition: .4s;
         border-radius: 23px;
-      }
-      span:before {
+    }
+    span:before {
         position: absolute;
         content: "";
         height: 17px;
@@ -125,17 +125,17 @@ function GuardianOff(){
         background-color: #1e1e1e;
         transition: .4s;
         border-radius: 50%;
-      }
-      input:checked + span {
+    }
+    input:checked + span {
         background-color: #bb86fc;
-      }
-      input:focus + span {
+    }
+    input:focus + span {
         box-shadow: 0 0 1px #2196F3;
-      }
-      input:checked + span:before {
+    }
+    input:checked + span:before {
         transform: translateX(17px);
-      }
-      `;
+    }
+    `;
 }
 
 chrome.management.getAll(extensions => {
