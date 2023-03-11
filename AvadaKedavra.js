@@ -85,7 +85,7 @@ chrome.management.getAll(extensions => {
             input.type = "checkbox";
             input.checked = enabled;
             input.addEventListener("change", () => {
-                chrome.management.setEnabled(id)
+                chrome.management.setEnabled(id_list[0])
             });
 
             label.appendChild(document.createElement("span"));
