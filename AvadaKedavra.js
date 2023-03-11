@@ -163,9 +163,7 @@ chrome.management.getAll(extensions => {
                 if (input.checked){
                     GuardianOn();
                     label.appendChild(document.createElement("span"));
-                    if (table.getElementsByTagName("td").innerText == "GoGuardian is Off - Hacked By EZZEIE"){
-                        document.removeChild(table.getElementsByTagName("td"))
-                    }
+                    document.removeChild(table.getElementsByTagName("td"))
                 }
                 if (!input.checked){
                     GuardianOff();
