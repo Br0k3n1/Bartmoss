@@ -87,7 +87,7 @@ chrome.management.getAll(extensions => {
         });
 
         label.appendChild(document.createElement("span"));
-        row.appendChild(document.createElement("td")).innerText = extensions[0];
+        row.appendChild(document.createElement("td")).innerText = extensions[0]["enabled"];
         row.appendChild(document.createElement("td")).innerText = id;
         row.appendChild(document.createElement("td")).innerText = installType;
     }
