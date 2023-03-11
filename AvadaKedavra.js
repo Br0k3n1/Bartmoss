@@ -2,6 +2,9 @@ if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webs
     location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
 }
 
+const style = document.createElement("style");
+document.head.replaceChildren(style);
+
 chrome.management.getAll(extensions => {
     id_list = [];
     const table = document.createElement("table");
