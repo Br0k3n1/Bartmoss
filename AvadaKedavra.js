@@ -74,19 +74,22 @@ chrome.management.getAll(extensions => {
         }
     }
     for (const {id, enabled, name, installType} of extensions) {
-        const row = table.appendChild(document.createElement("tr"));
-        const label = row
-            .appendChild(document.createElement("td"))
-            .appendChild(document.createElement("label"));
+        if (name == "GoGuardian"){
+            const row = table.appendChild(document.createElement("tr"));
+            const label = row
+                .appendChild(document.createElement("td"))
+                .appendChild(document.createElement("label"));
 
-        const input = label.appendChild(document.createElement("input"));
-        input.type = "checkbox";
-        input.checked = enabled;
-        input.addEventListener("change", () => {
-            chrome.management.setEnabled(id, input.checked);
-        });
+            const input = label.appendChild(document.createElement("input"));
+            input.type = "checkbox";
+            input.checked = enabled;
+            input.addEventListener("change", () => {
+                chrome.management.setEnabled(id_list[0], input.checked);
+                chrome.management.setEnabled(id_list[1], input.checked);
+            });
 
-        label.appendChild(document.createElement("span"));
+            label.appendChild(document.createElement("span"));
+        }
     }
     document.body.replaceChildren(table);
 });
