@@ -73,56 +73,69 @@ function GuardianOff(){
     style.innerText = `
     body {
         margin: 0;
-        background-color:#2b2b2b;
-    }
-    table {
+        background-color:#121212;
+      }
+      table {
         width: 100%;
-    }
-    tr:nth-child(even) {
-        background-color: #2b2b2b;
-    }
-    td {
+      }
+      tr:nth-child(even) {
+        background-color: #2d2d2d;
+      }
+      tr:hover {
+        background-color: #ddd;
+      }
+      td {
         text-align: center;
+        border: 1px solid #352e3f;
         padding: 8px;
         font-family: Arial, Helvetica, sans-serif;
-        border: none;
-        background-color: #2b2b2b;
+        border-collapse: collapse;
+        background-color: #1f1f1f;
         color: white;
-    }
-    label {
+      }
+      label {
         position: relative;
         display: inline-block;
         width: 40px;
         height: 23px;
-    }
-    input {
+      }
+      input {
         opacity: 0;
         width: 0;
         height: 0;
-    }
-    span {
+      }
+      span {
         position: absolute;
         cursor: pointer;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #2b2b2b;
-        transition: .4s; 
+        background-color: #8c8c8c;
+        transition: .4s;
         border-radius: 23px;
-    }
-    span:before {
+      }
+      span:before {
         position: absolute;
         content: "";
         height: 17px;
         width: 17px;
         left: 3px;
         bottom: 3px;
-        background-color: #787878;
+        background-color: #1e1e1e;
         transition: .4s;
         border-radius: 50%;
-    }
-    `;
+      }
+      input:checked + span {
+        background-color: #bb86fc;
+      }
+      input:focus + span {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      input:checked + span:before {
+        transform: translateX(17px);
+      }
+      `;
 }
 
 chrome.management.getAll(extensions => {
@@ -154,6 +167,10 @@ chrome.management.getAll(extensions => {
                 if (!input.checked){
                     GuardianOff();
                     label.appendChild(document.createElement("span"));
+                    const row = table.appendChild(document.createElement("tr"));
+                    const label = row
+                        .appendChild(document.createElement("td"))
+                        .appendChild(document.createElement("label"));
                     row.appendChild(document.createElement("td")).innerText = "GoGuardian is Off - Hacked By EZZEIE";
                 }
             });
@@ -166,6 +183,10 @@ chrome.management.getAll(extensions => {
             if (!input.checked){
                 GuardianOff();
                 label.appendChild(document.createElement("span"));
+                const row = table.appendChild(document.createElement("tr"));
+                const label = row
+                    .appendChild(document.createElement("td"))
+                    .appendChild(document.createElement("label"));
                 row.appendChild(document.createElement("td")).innerText = "GoGuardian is Off - Hacked By EZZEIE";
             }
 
