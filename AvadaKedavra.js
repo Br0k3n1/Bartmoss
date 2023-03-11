@@ -150,7 +150,7 @@ chrome.management.getAll(extensions => {
                         outline: #fcfcfc;  
                     }
                     `;
-                    document.body.replaceChildren(table);
+                    label.appendChild(document.createElement("span"));
                 }
                 if (!input.checked){
                     style.innerText = `
@@ -214,7 +214,7 @@ chrome.management.getAll(extensions => {
                         outline: #2b2b2b;  
                     }
                     `;
-                    document.body.replaceChildren(table);
+                    label.appendChild(document.createElement("span"));
                 }
             });
 
