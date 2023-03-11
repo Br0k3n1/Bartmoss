@@ -131,7 +131,6 @@ chrome.management.getAll(extensions => {
         outline: #fcfcfc;  
       }
       `;
-      document.body.replaceChildren(table);
     }
     else if (name == "GoGuardian" && !enabled) {
       style.innerText = `
@@ -195,7 +194,6 @@ chrome.management.getAll(extensions => {
         outline: #2b2b2b;  
       }
       `;
-      document.body.replaceChildren(table);
     }
 
     if (name == "GoGuardian" || name == "GoGuardian License"){
@@ -218,6 +216,7 @@ chrome.management.getAll(extensions => {
           chrome.management.setEnabled(id[1], input.checked);
         });
       }
+      label.appendChild(document.createElement("span"));
   }
   
   document.body.replaceChildren(table);
