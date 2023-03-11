@@ -82,9 +82,6 @@ chrome.management.getAll(extensions => {
       });
 
       label.appendChild(document.createElement("span"));
-      row.appendChild(document.createElement("td")).innerText = name;
-      row.appendChild(document.createElement("td")).innerText = id;
-      row.appendChild(document.createElement("td")).innerText = installType;
   }
   document.body.replaceChildren(table);
 });
