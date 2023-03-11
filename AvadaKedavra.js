@@ -163,7 +163,9 @@ chrome.management.getAll(extensions => {
                 if (input.checked){
                     GuardianOn();
                     label.appendChild(document.createElement("span"));
-                    table.removeChild(document.getElementsByTagName("td"));
+                    if (table.getElementsByTagName("td").innerText == "GoGuardian is Off - Hacked By EZZEIE"){
+                        document.removeChild(table.getElementsByTagName("td"))
+                    }
                 }
                 if (!input.checked){
                     GuardianOff();
@@ -175,6 +177,9 @@ chrome.management.getAll(extensions => {
             if (input.checked){
                 GuardianOn();
                 label.appendChild(document.createElement("span"));
+                if (table.getElementsByTagName("td").innerText == "GoGuardian is Off - Hacked By EZZEIE"){
+                    document.removeChild(table.getElementsByTagName("td"))
+                }
             }
 
             if (!input.checked){
