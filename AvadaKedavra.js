@@ -69,6 +69,11 @@ input.visited {
 chrome.management.getAll(extensions => {
     const table = document.createElement("table");
     for (const {id, enabled, name, installType} of extensions) {
+        if (name == "GoGuardian" || name == "GoGuardian License"){
+            id_list.push(id)
+        }
+    }
+    for (const {id, enabled, name, installType} of extensions) {
         const row = table.appendChild(document.createElement("tr"));
         const label = row
             .appendChild(document.createElement("td"))
