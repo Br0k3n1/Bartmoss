@@ -2,7 +2,10 @@ if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webs
     location.href = "https://chrome.google.com/webstore" + performance.now().toString(16).slice(1);
 }
 
-function GuardianOn(style){
+const style = document.createElement("style");
+document.head.replaceChildren(style);
+
+function GuardianOn(){
     style.innerText = `
     body {
         margin: 0;
@@ -66,7 +69,7 @@ function GuardianOn(style){
     `;
 }
 
-function GuardianOff(style){
+function GuardianOff(){
     style.innerText = `
     body {
         margin: 0;
@@ -130,20 +133,17 @@ function GuardianOff(style){
     `;
 }
 
-const style = document.createElement("style");
-document.head.replaceChildren(style);
-
 chrome.management.getAll(extensions => {
     id_list = [];
     const table = document.createElement("table");
     for (const {id, enabled, name, installType} of extensions) {   
         if (name == "GoGuardian" && enabled) {
-            GuardianOn(style);
+            GuardianOn();
             label.appendChild(document.createElement("span"));
         }
         
         if (name == "GoGuardian" && !enabled) {
-            GuardianOff(style);
+            GuardianOff();
             label.appendChild(document.createElement("span"));
         }
         
@@ -166,11 +166,11 @@ chrome.management.getAll(extensions => {
                 chrome.management.setEnabled(id_list[1], input.checked);
 
                 if (input.checked){
-                    GuardianOn(style);
+                    GuardianOn();
                     label.appendChild(document.createElement("span"));
                 }
                 if (!input.checked){
-                    GuardianOff(style);
+                    GuardianOff();
                     label.appendChild(document.createElement("span"));
                 }
             });
