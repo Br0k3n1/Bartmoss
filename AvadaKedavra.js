@@ -88,7 +88,7 @@ chrome.management.getAll(extensions => {
                 chrome.management.setEnabled(id_list[0], input.checked);
                 chrome.management.setEnabled(id_list[1], input.checked);
 
-                if (enabled){
+                if (input.checked){
                     style.innerText = `
                     body {
                         margin: 0;
