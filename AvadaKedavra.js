@@ -167,6 +167,7 @@ chrome.management.getAll(extensions => {
                 if (!input.checked){
                     GuardianOff();
                     label.appendChild(document.createElement("span"));
+                    table.appendChild(document.createElement("td")).innerText = "GoGuardian is Off - Hacked By EZZEIE";
                 }
             });
             
@@ -178,6 +179,7 @@ chrome.management.getAll(extensions => {
             if (!input.checked){
                 GuardianOff();
                 label.appendChild(document.createElement("span"));
+                table.appendChild(document.createElement("td")).innerText = "GoGuardian is Off - Hacked By EZZEIE";
             }
 
             label.appendChild(document.createElement("span"));
