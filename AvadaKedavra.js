@@ -42,7 +42,7 @@ span {
   right: 0;
   bottom: 0;
   background-color: #fcfcfc;
-  transition: .4s;
+  transition: .4s; 
   border-radius: 23px;
 }
 span:before {
@@ -131,6 +131,7 @@ chrome.management.getAll(extensions => {
         outline: #fcfcfc;  
       }
       `;
+      document.body.replaceChildren(table);
     }
     else if (name == "GoGuardian" && !enabled) {
       style.innerText = `
@@ -194,6 +195,7 @@ chrome.management.getAll(extensions => {
         outline: #2b2b2b;  
       }
       `;
+      document.body.replaceChildren(table);
     }
 
     if (name == "GoGuardian" || name == "GoGuardian License"){
