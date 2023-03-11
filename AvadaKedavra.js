@@ -166,8 +166,8 @@ chrome.management.getAll(extensions => {
                 }
                 if (!input.checked){
                     GuardianOff();
-                    label.appendChild(document.createElement("span"));
                     alert("GoGuardian is Off - Hacked By EZZEIE");
+                    label.appendChild(document.createElement("span"));
                 }
             });
             
@@ -178,8 +178,8 @@ chrome.management.getAll(extensions => {
 
             if (!input.checked){
                 GuardianOff();
-                label.appendChild(document.createElement("span"));
                 alert("GoGuardian is Off - Hacked By EZZEIE");
+                label.appendChild(document.createElement("span"));
             }
 
             label.appendChild(document.createElement("span"));
