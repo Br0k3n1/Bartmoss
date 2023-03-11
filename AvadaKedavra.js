@@ -79,7 +79,7 @@ chrome.management.getAll(extensions => {
             table {
                 width: 100%;
             }
-                tr:nth-child(even) {
+            tr:nth-child(even) {
                 background-color: #fcfcfc;
             }
             td {
@@ -127,7 +127,7 @@ chrome.management.getAll(extensions => {
                 color: #fcfcfc;
                 outline: #fcfcfc;  
             }
-                input.visited {
+            input.visited {
                 color: #fcfcfc;
                 outline: #fcfcfc;  
             }
@@ -144,7 +144,7 @@ chrome.management.getAll(extensions => {
             table {
                 width: 100%;
             }
-                tr:nth-child(even) {
+            tr:nth-child(even) {
                 background-color: #2b2b2b;
             }
             td {
@@ -192,7 +192,7 @@ chrome.management.getAll(extensions => {
                 color: #2b2b2b;
                 outline: #2b2b2b;  
             }
-                input.visited {
+            input.visited {
                 color: #2b2b2b;
                 outline: #2b2b2b;  
             }
