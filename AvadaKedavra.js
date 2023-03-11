@@ -73,20 +73,24 @@ function GuardianOff(){
     style.innerText = `
     body {
         margin: 0;
-        background-color:#2b2b2b;
+        background-color:#121212;
     }
     table {
         width: 100%;
     }
     tr:nth-child(even) {
-        background-color: #2b2b2b;
+        background-color: #2d2d2d;
+    }
+    tr:hover {
+        background-color: #ddd;
     }
     td {
         text-align: center;
+        border: 1px solid #352e3f;
         padding: 8px;
         font-family: Arial, Helvetica, sans-serif;
-        border: none;
-        background-color: #2b2b2b;
+        border-collapse: collapse;
+        background-color: #1f1f1f;
         color: white;
     }
     label {
@@ -107,8 +111,8 @@ function GuardianOff(){
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #2b2b2b;
-        transition: .4s; 
+        background-color: #8c8c8c;
+        transition: .4s;
         border-radius: 23px;
     }
     span:before {
@@ -118,17 +122,18 @@ function GuardianOff(){
         width: 17px;
         left: 3px;
         bottom: 3px;
-        background-color: #2b2b2b;
+        background-color: #1e1e1e;
         transition: .4s;
         border-radius: 50%;
     }
-    input:focus {
-        color: #2b2b2b;
-        outline: #2b2b2b;  
+    input:checked + span {
+        background-color: #bb86fc;
     }
-    input.visited {
-        color: #2b2b2b;
-        outline: #2b2b2b;  
+    input:focus + span {
+        box-shadow: 0 0 1px #2196F3;
+    }
+    input:checked + span:before {
+        transform: translateX(17px);
     }
     `;
 }
